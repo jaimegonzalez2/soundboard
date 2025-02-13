@@ -23,3 +23,4 @@ function playSound(soundKey) {
         sounds[soundKey].file.play();
     }
 }
+alert("JavaScript is working!");
