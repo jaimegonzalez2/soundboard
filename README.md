@@ -7,6 +7,3 @@ A simple web-based soundboard where users can play different sounds by clicking 
 - `styles.css` - CSS styles
 - `script.js` - JavaScript functionality
 - `/sounds/` - Folder containing audio files
-
-## 🚀 How to Run
-1. Clone the repository:
