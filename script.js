@@ -12,14 +12,14 @@ const soundboard = document.querySelector('.soundboard');
 // Dynamically create buttons based on the sounds object
 for (const [key] of Object.entries(sounds)) {
     const button = document.createElement('button');
-    button.textContent = key.replace('sound', 'Sound '); // Format button text
+    button.textContent = sound.label; // Use custom label for button text
     button.onclick = () => playSound(key);
     soundboard.appendChild(button);
 }
 
 function playSound(soundKey) {
     if (sounds[soundKey]) {
-        sounds[soundKey].currentTime = 0;
-        sounds[soundKey].play();
+        sounds[soundKey].file.currentTime = 0;
+        sounds[soundKey].file.play();
     }
 }
