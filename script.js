@@ -9,10 +9,10 @@ const sounds = {
 
 const soundboard = document.querySelector('.soundboard');
 
-// Dynamically create buttons based on the sounds object
-for (const [key] of Object.entries(sounds)) {
+// Dynamically create buttons for each sound
+for (const [key, sound] of Object.entries(sounds)) {
     const button = document.createElement('button');
-    button.textContent = sound.label; // Use custom label for button text
+    button.textContent = sound.label; // Set custom text
     button.onclick = () => playSound(key);
     soundboard.appendChild(button);
 }
