@@ -1,7 +1,7 @@
 const sounds = {
-    sound1: new Audio('sounds/my_leg.mp3'),
-    sound2: new Audio('sounds/simpsons.mp3'),
-    sound3: new Audio('sounds/workaholics.mp3')
+    sound1: { file: new Audio('sounds/my_leg.mp3'), label:'MyLeg'},
+    sound2: { file: new Audio('sounds/simpsons.mp3'), label: 'InDanger'},
+    sound3: { file: new Audio('sounds/workaholics.mp3'), label: 'AlmostDied'}
     // Add additional audio files here in the format below:
     // sound4: new Audio('sounds/sound4.mp3'),
     // sound5: new Audio('sounds/sound5.mp3')
