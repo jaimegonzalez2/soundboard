@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (sounds[soundKey]) {
             currentPlaying = sounds[soundKey].file; // Update the current sound
+            console.log(`Playing: ${sounds[soundKey].label}`); // Debugging log
             currentPlaying.play();
+        }  else {
+            console.log("Sound not found!");
         }
     }
 });
