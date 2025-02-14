@@ -22,24 +22,24 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns*/
     grid-template-rows: repeat(2,auto); /* 2 rows */
-    gap: 15px;
-    text-align: center;
+    gap: 20px;
     justify-items: center; /* Center buttons within grid */
+    max-width: 600px; /* Prevents it from stretching too wide */
     width: 100%; /* Ensures it takes up enough space */
-    max-width: 500px; /* Prevents it from stretching too wide */
 }
 
 button {
-    padding: 40px; /* Bigger buttons */
-    font-size: 30px; /* Larger text */
+    padding: 15px; /* Bigger buttons */
+    font-size: 22px; /* Larger text */
     border: none;
     cursor: pointer;
     background-color: #33C0FF;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: 0.3s;
-    width: 150px; /* Fixed button width */
+    width: 180px; /* Fixed button width */
     height: 80px; /* Fixed button height */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
 }
 
 button:hover {
