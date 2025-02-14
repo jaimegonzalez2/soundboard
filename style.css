@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Allows scrolling if needed */
     background-color: #7979fc;
     text-align: center;
 }
@@ -12,7 +12,6 @@ body {
 .title {
     font-size: 48px;  /* Adjust size as needed */
     font-weight: bold;
-    text-align: center;
     margin-bottom: 20px;
     color: #333; /* Change to any color */
     font-family: 'Arial', sans-serif; /* Change to any font */
