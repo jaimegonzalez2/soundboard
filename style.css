@@ -1,12 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    background-color: #7979fc;
+    background-color: #33C0FF; /* background color */
     text-align: center;
+    margin: 0;
 }
 
 .title {
