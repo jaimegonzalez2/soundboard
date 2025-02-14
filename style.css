@@ -10,19 +10,19 @@ body {
 
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 2fr);
     gap: 15px;
     text-align: center;
 }
 
 button {
-    padding: 30px; /* Bigger buttons */
-    font-size: 20px; /* Larger text */
+    padding: 40px; /* Bigger buttons */
+    font-size: 30px; /* Larger text */
     border: none;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #33C0FF;
     color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     transition: 0.3s;
     width: 150px; /* Fixed button width */
     height: 80px; /* Fixed button height */
