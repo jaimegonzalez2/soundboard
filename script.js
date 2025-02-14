@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound3: { file: new Audio('sounds/workaholics.mp3'), label: 'Almost Died'},
         sound4: { file: new Audio('sounds/CHAINSAW.mp3'), label: 'Chainsaw'},
         sound5: { file: new Audio('sounds/Wilhelm_Scream.mp3'), label: 'Wilhelm Scream'},
-        sound6: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail'}
+        sound6: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail Runaway'}
         // Add additional audio files here in the format below:
         // sound#: new Audio('sounds/sound4.mp3'),
     };
