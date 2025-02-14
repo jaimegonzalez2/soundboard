@@ -1,20 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
-    flex-direction: column;
-}
-
-.soundboard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns*/
-    grid-template-rows: repeat(2,auto); /* 2 rows */
-    gap: 15px;
+    background-color: #7979fc;
     text-align: center;
-    justify-items: center; /* Center buttons within grid */
 }
 
 .title {
@@ -24,6 +16,15 @@ body {
     margin-bottom: 20px;
     color: #333; /* Change to any color */
     font-family: 'Arial', sans-serif; /* Change to any font */
+}
+
+.soundboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns*/
+    grid-template-rows: repeat(2,auto); /* 2 rows */
+    gap: 15px;
+    text-align: center;
+    justify-items: center; /* Center buttons within grid */
 }
 
 button {
