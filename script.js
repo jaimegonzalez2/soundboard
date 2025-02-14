@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
         sound4: { file: new Audio('sounds/CHAINSAW.mp3'), label: 'Chainsaw'},
         sound5: { file: new Audio('sounds/Wilhelm_Scream.mp3'), label: 'Wilhelm Scream'},
         sound6: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail'}
-
         // Add additional audio files here in the format below:
-        // sound4: new Audio('sounds/sound4.mp3'),
-        // sound5: new Audio('sounds/sound5.mp3')
+        // sound#: new Audio('sounds/sound4.mp3'),
     };
+
+    let currentPlaying = null; // Track the currently playing sound
     
     const soundboard = document.querySelector('.soundboard');
     
@@ -25,9 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     function playSound(soundKey) {
+        if (currentPlaying) {
+            currentPlaying.pause(); // Stop the currently playing sound
+            currentPlaying.currentTime = 0; // Reset to beginning
+        }
+        
         if (sounds[soundKey]) {
-            sounds[soundKey].file.currentTime = 0;
-            sounds[soundKey].file.play();
+            currentPlaying = sounds[soundKey].file; // Update the current sound
+            currentPlaying.play();
         }
     }
 });
