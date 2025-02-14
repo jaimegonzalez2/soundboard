@@ -24,6 +24,8 @@ body {
     gap: 15px;
     text-align: center;
     justify-items: center; /* Center buttons within grid */
+    width: 100%; /* Ensures it takes up enough space */
+    max-width: 500px; /* Prevents it from stretching too wide */
 }
 
 button {
