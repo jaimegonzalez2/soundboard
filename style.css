@@ -17,7 +17,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #333;
+    color: #e2c799; /* Pathfinder-style golden text */
 }
 
 .soundboard {
