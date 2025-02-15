@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     let currentPlaying = null; // Track the currently playing sound
+    let currentButton = null; // Track the button associated with the sound
     
     const soundboard = document.querySelector('.soundboard');
     
@@ -29,22 +30,31 @@ document.addEventListener("DOMContentLoaded", function() {
     for (const [key, sound] of Object.entries(sounds)) {
         const button = document.createElement('button');
         button.textContent = sound.label; // Set custom text
-        button.onclick = () => playSound(key);
+        button.onclick = () => toggleSound(key, button);
         soundboard.appendChild(button);
     }
     
-    function playSound(soundKey) {
-        if (currentPlaying) {
-            currentPlaying.pause(); // Stop the currently playing sound
-            currentPlaying.currentTime = 0; // Reset to beginning
-        }
-        
-        if (sounds[soundKey]) {
-            currentPlaying = sounds[soundKey].file; // Update the current sound
-            console.log(`Playing: ${sounds[soundKey].label}`); // Debugging log
+    function toggleSound(soundKey, button) {
+        if (currentPlaying === sounds[soundKey].file) {
+            // If the same sound is clicked, stop it
+            currentPlaying.pause();
+            currentPlaying.currentTime = 0;
+            currentPlaying = null;
+            currentButton.classList.remove("playing"); // Remove active style
+            currentButton = null;
+        } else {
+            // Stop the currently playing sound (if any)
+            if (currentPlaying) {
+                currentPlaying.pause();
+                currentPlaying.currentTime = 0;
+                currentButton.classList.remove("playing"); // Remove active style from previous button
+            }
+
+            // Play the new sound
+            currentPlaying = sounds[soundKey].file;
             currentPlaying.play();
-        }  else {
-            console.log("Sound not found!");
+            currentButton = button;
+            currentButton.classList.add("playing"); // Add active style
         }
     }
 });
