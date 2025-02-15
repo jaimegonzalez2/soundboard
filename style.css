@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    background-color: #B2BEB5; /* Ash gray background */
+    background-color: #848482; /* Battleship gray background */
     text-align: center;
     margin: 0;
 }
