@@ -1,6 +1,6 @@
 body {
-    background: url('pathfinder_background.jpg') no-repeat center center fixed; /* Background image */
-    background-size: cover;
+    /*background: url('pathfinder_background.jpg') no-repeat center center fixed; /* Background image */
+    /*background-size: cover;
     color: #e2c799; /* Pathfinder-style golden text */
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    /*background-color: #ADD8E6; /* Light blue background */
+    background-color: #ADD8E6; /* Light blue background */
     text-align: center;
     margin: 0;
 }
@@ -17,7 +17,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #e2c799; /* Pathfinder-style golden text */
+    color: #333; 
 }
 
 .soundboard {
