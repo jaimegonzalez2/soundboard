@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
         sound6: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail Runaway'},
         sound7: { file: new Audio('sounds/sydney_doing_math.mp3'), label: 'Sydney Doing Math'},
         sound8: { file: new Audio('sounds/Stitch_Laugh.mp3'), label: 'Stitch Laugh'},
-        sound9: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning'}
+        sound9: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning'},
+        sound10: { file: new Audio('sounds/Cowboy_Standoff.mp3'), label: 'Cowboy Standoff'},
+        sound11: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball'},
+        sound12: { file: new Audio('sounds/Jeopardy_music.mp3'), label: 'Jeopardy Music'},
+        sound13: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning'}
         // Add additional audio files here in the format below:
         // sound#: new Audio('sounds/sound4.mp3'),
     };
