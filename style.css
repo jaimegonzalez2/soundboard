@@ -5,41 +5,43 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    background-color: #33C0FF; /* background color */
+    background-color: #ADD8E6; /* Light Blue */
     text-align: center;
     margin: 0;
 }
 
 .title {
-    font-size: 48px;  /* Adjust size as needed */
+    font-size: 48px;  
     font-weight: bold;
     margin-bottom: 20px;
-    color: #333; /* Change to any color */
-    font-family: 'Arial', sans-serif; /* Change to any font */
+    color: #333; 
+    font-family: 'Arial', sans-serif;
 }
 
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns*/
-    grid-template-rows: repeat(2,auto); /* 2 rows */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 20px;
-    justify-items: center; /* Center buttons within grid */
-    max-width: 600px; /* Prevents it from stretching too wide */
-    width: 100%; /* Ensures it takes up enough space */
+    justify-items: center;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
 }
 
 button {
-    padding: 15px; /* Bigger buttons */
-    font-size: 22px; /* Larger text */
+    padding: 15px;
+    font-size: 22px;
     border: none;
     cursor: pointer;
-    background-color: #33C0FF;
+    background-color: #007BFF; /* Darker blue for contrast */
     color: white;
     border-radius: 10px;
     transition: 0.3s;
-    width: 180px; /* Fixed button width */
-    height: 80px; /* Fixed button height */
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    width: 180px;
+    height: 80px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid white; /* Makes buttons stand out */
 }
 
 button:hover {
