@@ -20,7 +20,7 @@ body {
 .soundboard {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Forces 3 columns */
-    grid-template-rows: repeat(2, auto); /* Forces 2 rows */
+    grid-template-rows: repeat(3, auto); /* Forces 3 rows */
     gap: 15px; /* Adds small spacing between buttons */
     justify-items: center;
     align-items: center;
