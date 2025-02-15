@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    background-color: #ADD8E6; /* Light blue background */
+    /*background-color: #ADD8E6; /* Light blue background */
     text-align: center;
     margin: 0;
 }
@@ -17,7 +17,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #cd950c; 
+    color: #702963; 
 }
 
 .soundboard {
