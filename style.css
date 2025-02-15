@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    background-color: #bebebe; /* Gray background */
+    background-color: #303030; /* Gray background */
     text-align: center;
     margin: 0;
 }
