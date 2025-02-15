@@ -35,8 +35,8 @@ button {
     font-size: 20px; /* Increases text size */
     border: none;
     cursor: pointer;
-    background-color: #007BFF; /* Blue button */
-    color: white;
+    background-color: #702963; /* Byzantium button */
+    color: gold; /* Color of text in button */
     border-radius: 12px;
     transition: 0.3s;
     width: 150px; /* Wider buttons */
