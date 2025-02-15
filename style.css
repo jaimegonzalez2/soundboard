@@ -31,8 +31,8 @@ body {
 }
 
 button {
-    padding: 20px; /* Makes buttons bigger */
-    font-size: 24px; /* Increases text size */
+    padding: 16px; /* Makes buttons bigger */
+    font-size: 20px; /* Increases text size */
     border: none;
     cursor: pointer;
     background-color: #007BFF; /* Blue button */
