@@ -45,5 +45,6 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Changes button background upon hover */
+    color: white; /* Changes text color */
 }
