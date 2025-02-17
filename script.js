@@ -19,9 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
         sound15: { file: new Audio('sounds/Stabby_Sound.mp3'), label: 'Stab'},
         sound16: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren'},
         sound17: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam'},
-        sound18: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass'}
+        sound18: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass'},
+        sound19: { file: new Audio('sounds/Electric_shock.mp3'), label: 'Electric Zap'},
+        sound20: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot'},
+        sound21: { file: new Audio('sounds/KABOOM.mp3'), label: 'Explosion'},
+        sound22: { file: new Audio('sounds/I_see_dead_people.mp3'), label: 'I See Dead People'}
         // Add additional audio files here in the format below:
-        // sound#: new Audio('sounds/sound4.mp3'),
+        // sound#: new Audio('sounds/sound#.mp3'),
     };
 
     let currentPlaying = null; // Track the currently playing sound
