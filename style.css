@@ -22,8 +22,8 @@ body {
 
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Forces 4 columns */
-    grid-template-rows: repeat(4, auto); /* Forces 4 rows */
+    grid-template-columns: repeat(5, 1fr); /* Forces 5 columns */
+    grid-template-rows: repeat(5, auto); /* Forces 5 rows */
     gap: 15px; /* Adds small spacing between buttons */
     justify-items: center;
     align-items: center;
