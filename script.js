@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
         sound13: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die'},
         sound14: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha'},
         sound15: { file: new Audio('sounds/Stabby_Sound.mp3'), label: 'Stab'},
-        sound16: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren'}
+        sound16: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren'},
+        sound17: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam'},
+        sound18: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass'}
         // Add additional audio files here in the format below:
         // sound#: new Audio('sounds/sound4.mp3'),
     };
