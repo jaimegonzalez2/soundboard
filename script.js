@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
         sound19: { file: new Audio('sounds/Electric_shock.mp3'), label: 'Electric Zap'},
         sound20: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot'},
         sound21: { file: new Audio('sounds/KABOOM.mp3'), label: 'Explosion'},
-        sound22: { file: new Audio('sounds/I_see_dead_people.mp3'), label: 'I See Dead People'}
+        sound22: { file: new Audio('sounds/I_see_dead_people.mp3'), label: 'I See Dead People'},
+        sound23: { file: new Audio('sounds/spell_casting.mp3'), label: 'Spell Casting'}
         // Add additional audio files here in the format below:
         // sound#: new Audio('sounds/sound#.mp3'),
     };
