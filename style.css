@@ -37,7 +37,7 @@ body {
 
 button {
     position: relative;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     cursor: pointer;
     background-color: gold;
@@ -56,32 +56,45 @@ button {
     border: 3px solid black; /* Outer border */
 }
 
-/* Internal lines using pseudo-elements */
+/* Create internal lines using ::before and ::after */
 button::before,
 button::after {
     content: "";
     position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
-    border: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
-/* Diagonal and horizontal lines */
+/* Internal diagonal and horizontal lines */
 button::before {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
     clip-path: polygon(
-        50% 0%, 50% 100%, /* Vertical */
-        0% 50%, 100% 50%, /* Horizontal */
-        15% 15%, 85% 85%, /* Diagonal */
-        85% 15%, 15% 85%
+        50% 0%, 85% 15%, 100% 50%, 85% 85%, 
+        50% 100%, 15% 85%, 0% 50%, 15% 15%
     );
-    background: linear-gradient(black 2px, transparent 2px),
-                linear-gradient(black 2px, transparent 2px);
-    background-size: 100% 100%, 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
 }
+
+/* Extra diagonal lines */
+button::after {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    clip-path: polygon(
+        50% 0%, 85% 15%, 100% 50%, 85% 85%, 
+        50% 100%, 15% 85%, 0% 50%, 15% 15%
+    );
+}
+
 button:hover {
     background-color: #FFD700; /* Brighter gold on hover */
     border-color: #DAA520; /* Darker edges on hover */
