@@ -1,14 +1,14 @@
 body {
-    background: url('pathfinder_background.jpg') no-repeat center center fixed; /* Background image */
-    background-size: cover;
-    color: #e2c799; /* Pathfinder-style golden text */
-    font-family: 'Arial', sans-serif;
+    /*background: url('pathfinder_background.jpg') no-repeat center center fixed; /* Background image */
+    /*background-size: cover;
+    /*color: #e2c799; /* Pathfinder-style golden text */
+    font-family: 'Times New Roman', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Allows scrolling if needed */
-    /*background-color: #ADD8E6; /* Light blue background */
+    background-color: #7851A9; /* Royal Purple background */
     text-align: center;
     margin: 0;
 }
@@ -17,7 +17,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #eead0e; 
+    color: gold; 
 }
 
 .soundboard {
@@ -36,20 +36,25 @@ body {
 }
 
 button {
-    padding: 18px; /* Makes buttons bigger */
-    font-size: 24px; /* Increases text size */
-    border: none;
+    width: 120px; /* Adjust size */
+    height: 120px;
+    background-color: gold; /* Dice color */
+    clip-path: polygon(50% 0%, 90% 20%, 100% 50%, 90% 80%, 50% 100%, 10% 80%, 0% 50%, 10% 20%);
+    border: 4px solid darkgoldenrod; /* Edges of the dice */
+    color: black; /* Text color */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    background-color: #702963; /* Byzantium button */
-    color: gold; /* Color of text in button */
-    border-radius: 12px;
-    transition: 0.3s;
-    width: 175px; /* Wider buttons */
-    height: 100px; /* Taller buttons */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #0056b3; /* Changes button background upon hover */
-    color: white; /* Changes text color */
+    background-color: #FFD700; /* Brighter gold on hover */
+    border-color: #DAA520; /* Darker edges on hover */
+    transform: scale(1.1); /* Slight zoom effect */
 }
