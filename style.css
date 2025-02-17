@@ -28,6 +28,11 @@ body {
     justify-items: center;
     align-items: center;
     width: min(90%, 600px); /* Keeps the grid responsive */
+
+    /* Center the entire grid */
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
 }
 
 button {
