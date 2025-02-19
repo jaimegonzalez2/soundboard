@@ -1,13 +1,10 @@
 body {
-    /*background: url('pathfinder_background.jpg') no-repeat center center fixed; /* Background image */
-    /*background-size: cover;
-    /*color: #e2c799; /* Pathfinder-style golden text */
     font-family: 'Times New Roman', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Allows scrolling if needed */
+    min-height: 100vh;
     background-color: #3D0059; /* Royal Purple background */
     text-align: center;
     margin: 0;
@@ -17,19 +14,17 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: gold; 
+    color: gold;
 }
 
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Num of columns */
-    grid-template-rows: repeat(4, auto); /* Num of rows */
-    gap: 15px; /* Adds small spacing between buttons */
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 15px;
     justify-items: center;
     align-items: center;
-    width: min(90%, 600px); /* Keeps the grid responsive */
-
-    /* Center the entire grid */
+    width: min(90%, 600px);
     justify-content: center;
     align-items: center;
     width: fit-content;
@@ -42,11 +37,11 @@ body {
     border: none;
     cursor: pointer;
     position: relative;
-    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+    transition: transform 0.2s ease-in-out;
 }
 
 .dice-button:hover {
-    transform: scale(1.1); /* Slightly enlarges on hover */
+    transform: scale(1.1);
 }
 
 .dice-button svg {
@@ -54,28 +49,36 @@ body {
     height: 100%;
 }
 
+/* D20 Outer Shape */
 .dice-shape {
-    fill: gold; /* Dice color */
-    stroke: #a67c00; /* Darker gold edges */
-    stroke-width: 3; /* Visible internal lines */
+    fill: gold;
+    stroke: #a67c00;
+    stroke-width: 3;
 }
 
+/* Internal D20 Lines */
+.dice-lines {
+    stroke: #a67c00;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Dice Text */
 .dice-text {
-    font-size: 12px; /* Smaller font for better fit */
-    fill: black; /* Text color */
-    text-anchor: middle;
-    dominant-baseline: middle;
+    font-size: clamp(10px, 4vw, 12px);
+    fill: black;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
-    word-wrap: break-word; /* Ensures long text wraps */
-    width: 80px; /* Constrains text width */
+    text-anchor: middle;
+    dominant-baseline: middle;
 }
 
-/* Ensures text remains within the dice */
+/* Ensures text stays centered */
 .dice-text-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    width: 80%;
 }
