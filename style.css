@@ -35,67 +35,40 @@ body {
     width: fit-content;
 }
 
-button {
-    position: relative;
-    font-size: 18px;
-    font-weight: bold;
+.dice-button {
+    width: 120px; /* Adjust size */
+    height: 120px; /* Keep aspect ratio */
+    background: none;
+    border: none;
     cursor: pointer;
-    background-color: gold;
-    color: black;
-    width: 120px;
-    height: 120px;
-    clip-path: polygon(
-        50% 0%, 85% 15%, 100% 50%, 85% 85%, 
-        50% 100%, 15% 85%, 0% 50%, 15% 15%
-    ); /* d20 shape */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: 0.3s;
-    border: 3px solid black; /* Outer border */
+    position: relative;
 }
 
-/* Internal diagonal lines using absolute positioned pseudo-elements */
-button::before, button::after {
-    content: "";
-    position: absolute;
+.dice-button svg {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
 }
 
-button::before {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
-    clip-path: polygon(
-        50% 0%, 85% 15%, 100% 50%, 85% 85%, 
-        50% 100%, 15% 85%, 0% 50%, 15% 15%
-    );
+.dice-shape {
+    fill: gold; /* Dice color */
+    stroke: #b8860b; /* Darker gold lines */
+    stroke-width: 3; /* Make internal lines visible */
 }
 
-button::after {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
-    clip-path: polygon(
-        50% 0%, 85% 15%, 100% 50%, 85% 85%, 
-        50% 100%, 15% 85%, 0% 50%, 15% 15%
-    );
+.dice-text {
+    font-size: 14px;
+    fill: black; /* Text color */
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
 }
 
-button:hover {
-    background-color: #FFD700; /* Brighter gold on hover */
-    border-color: #DAA520; /* Darker edges on hover */
-    transform: scale(1.1); /* Slight zoom effect */
+/* Hover effect */
+.dice-button:hover .dice-shape {
+    fill: #d4af37; /* Slightly darker gold on hover */
+}
+
+.dice-button:hover .dice-text {
+    fill: #4a3f1d; /* Darker text for contrast */
 }
