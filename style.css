@@ -36,12 +36,17 @@ body {
 }
 
 .dice-button {
-    width: 120px; /* Adjust size */
-    height: 120px; /* Keep aspect ratio */
+    width: 120px;
+    height: 120px;
     background: none;
     border: none;
     cursor: pointer;
     position: relative;
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.dice-button:hover {
+    transform: scale(1.1); /* Slightly enlarges on hover */
 }
 
 .dice-button svg {
@@ -51,24 +56,26 @@ body {
 
 .dice-shape {
     fill: gold; /* Dice color */
-    stroke: #b8860b; /* Darker gold lines */
-    stroke-width: 3; /* Make internal lines visible */
+    stroke: #a67c00; /* Darker gold edges */
+    stroke-width: 3; /* Visible internal lines */
 }
 
 .dice-text {
-    font-size: 14px;
+    font-size: 12px; /* Smaller font for better fit */
     fill: black; /* Text color */
     text-anchor: middle;
     dominant-baseline: middle;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
+    word-wrap: break-word; /* Ensures long text wraps */
+    width: 80px; /* Constrains text width */
 }
 
-/* Hover effect */
-.dice-button:hover .dice-shape {
-    fill: #d4af37; /* Slightly darker gold on hover */
-}
-
-.dice-button:hover .dice-text {
-    fill: #4a3f1d; /* Darker text for contrast */
+/* Ensures text remains within the dice */
+.dice-text-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
