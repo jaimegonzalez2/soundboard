@@ -37,19 +37,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Dynamically create buttons for each sound
     for (const [key, sound] of Object.entries(sounds)) {
         const button = document.createElement('button');
-        button.textContent = sound.label; // Set custom text
+        button.classList.add("dice-button"); // Add the d20 dice styling
+        button.innerHTML = `<span>${sound.label}</span>`; // Ensures text stays inside the dice
         button.onclick = () => playSound(key);
         soundboard.appendChild(button);
     }
     
     function playSound(soundKey) {
         if (currentPlaying) {
-            currentPlaying.pause(); // Stop the currently playing sound
-            currentPlaying.currentTime = 0; // Reset to beginning
+            currentPlaying.pause();
+            currentPlaying.currentTime = 0;
         }
         
         if (sounds[soundKey]) {
-            currentPlaying = sounds[soundKey].file; // Update the current sound
+            currentPlaying = sounds[soundKey].file;
             currentPlaying.play();
         }
     }
