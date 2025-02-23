@@ -50,7 +50,20 @@ body {
     ); /* Overhead d20 shape */
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
-    padding: 10px;
+}
+
+/* Adds a centered triangle inside the d20 */
+.dice-button::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #a67c00; /* Darker gold triangle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Hover effect */
