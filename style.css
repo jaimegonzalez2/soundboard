@@ -50,31 +50,7 @@ body {
     ); /* Overhead d20 shape */
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
-}
-
-/* Internal lines to create d20 divisions */
-.dice-button::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom right, 
-        transparent 49.5%, #a67c00 50%, transparent 50.5%
-    ),
-    linear-gradient(
-        to bottom left, 
-        transparent 49.5%, #a67c00 50%, transparent 50.5%
-    ),
-    linear-gradient(
-        to top, 
-        transparent 49.5%, #a67c00 50%, transparent 50.5%
-    );
-    clip-path: polygon(
-        50% 0%, 85% 20%, 100% 50%, 85% 80%, 50% 100%, 
-        15% 80%, 0% 50%, 15% 20%
-    ); /* Ensure lines match the shape */
-    z-index: 1;
+    padding: 10px;
 }
 
 /* Hover effect */
