@@ -33,38 +33,51 @@ body {
 .dice-button {
     width: 120px;
     height: 120px;
-    background: gold; /* Dice color */
-    color: black; /* Text color */
-    font-size: 16px;
+    background: gold;
+    color: black;
+    font-size: 14px;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #a67c00; /* Darker gold outline */
+    position: relative;
+    border: 3px solid #a67c00; /* Darker gold for contrast */
     clip-path: polygon(
-        50% 0%, 90% 10%, 100% 35%, 85% 65%, 
-        90% 90%, 50% 100%, 10% 90%, 15% 65%, 
-        0% 35%, 10% 10%
-    ); /* Creates a d20-like shape */
-    transition: transform 0.2s ease-in-out, background 0.3s;
+        50% 0%, 85% 10%, 100% 30%, 85% 50%, 100% 70%, 85% 90%, 
+        50% 100%, 15% 90%, 0% 70%, 15% 50%, 0% 30%, 15% 10%
+    ); /* More refined d20 shape */
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
 
+/* Internal lines to simulate d20 edges */
+.dice-button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top left, 
+        transparent 48%, #a67c00 48%, #a67c00 52%, transparent 52%
+    ),
+    linear-gradient(
+        to top right, 
+        transparent 48%, #a67c00 48%, #a67c00 52%, transparent 52%
+    );
+    clip-path: polygon(
+        50% 0%, 85% 10%, 100% 30%, 85% 50%, 100% 70%, 85% 90%, 
+        50% 100%, 15% 90%, 0% 70%, 15% 50%, 0% 30%, 15% 10%
+    );
+}
+
+/* Hover effect */
 .dice-button:hover {
-    transform: scale(1.1); /* Slightly enlarges on hover */
-    background: #ffd700; /* Brighter gold effect */
+    transform: scale(1.1);
 }
 
+/* Click effect */
 .dice-button:active {
-    background: #d4af37; /* Slightly darker on click */
-}
-
-/* Ensures the text inside is positioned correctly */
-.dice-button span {
-    display: block;
-    padding: 5px;
-    text-align: center;
-    word-wrap: break-word;
+    transform: scale(0.95);
 }
