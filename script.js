@@ -33,43 +33,23 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentPlaying = null;
 
     const soundboard = document.querySelector('.soundboard');
-
+    
+    // Dynamically create buttons for each sound
     for (const [key, sound] of Object.entries(sounds)) {
-        const buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-
-        buttonContainer.innerHTML = `
-            <svg class="d20-button" width="120" height="120" viewBox="0 0 100 100">
-                <!-- Outer edges -->
-                <polygon points="50,5 90,25 85,70 50,95 15,70 10,25"
-                    stroke="#8B7500" stroke-width="2" fill="gold"/>
-
-                <!-- Internal lines for the d20 structure -->
-                <line x1="50" y1="5" x2="90" y2="25" stroke="#8B7500" stroke-width="2"/>
-                <line x1="50" y1="5" x2="10" y2="25" stroke="#8B7500" stroke-width="2"/>
-                <line x1="90" y1="25" x2="85" y2="70" stroke="#8B7500" stroke-width="2"/>
-                <line x1="10" y1="25" x2="15" y2="70" stroke="#8B7500" stroke-width="2"/>
-                <line x1="15" y1="70" x2="50" y2="95" stroke="#8B7500" stroke-width="2"/>
-                <line x1="85" y1="70" x2="50" y2="95" stroke="#8B7500" stroke-width="2"/>
-
-                <!-- Button Text -->
-                <text x="50%" y="55%" text-anchor="middle" font-size="10" fill="black" font-weight="bold">${sound.label}</text>
-            </svg>
-        `;
-
-        buttonContainer.addEventListener("click", () => playSound(key));
-
-        soundboard.appendChild(buttonContainer);
+        const button = document.createElement('button');
+        button.textContent = sound.label; // Set custom text
+        button.onclick = () => playSound(key);
+        soundboard.appendChild(button);
     }
-
+    
     function playSound(soundKey) {
         if (currentPlaying) {
-            currentPlaying.pause();
-            currentPlaying.currentTime = 0;
+            currentPlaying.pause(); // Stop the currently playing sound
+            currentPlaying.currentTime = 0; // Reset to beginning
         }
-
+        
         if (sounds[soundKey]) {
-            currentPlaying = sounds[soundKey].file;
+            currentPlaying = sounds[soundKey].file; // Update the current sound
             currentPlaying.play();
         }
     }
