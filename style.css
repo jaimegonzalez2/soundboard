@@ -30,27 +30,41 @@ body {
     width: fit-content;
 }
 
-button {
-    padding: 20px;
-    font-size: 18px;
-    border: 2px solid #a67c00; /* Dark gold border */
-    cursor: pointer;
-    background-color: gold;
-    color: black;
-    border-radius: 10px;
-    transition: 0.3s;
-    width: 150px;
-    height: 80px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+.dice-button {
+    width: 120px;
+    height: 120px;
+    background: gold; /* Dice color */
+    color: black; /* Text color */
+    font-size: 16px;
     font-weight: bold;
-    word-wrap: break-word;
-    white-space: normal;
-    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #a67c00; /* Darker gold outline */
+    clip-path: polygon(
+        50% 0%, 90% 10%, 100% 35%, 85% 65%, 
+        90% 90%, 50% 100%, 10% 90%, 15% 65%, 
+        0% 35%, 10% 10%
+    ); /* Creates a d20-like shape */
+    transition: transform 0.2s ease-in-out, background 0.3s;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #d4af37;
-    color: white;
+.dice-button:hover {
     transform: scale(1.1); /* Slightly enlarges on hover */
+    background: #ffd700; /* Brighter gold effect */
+}
+
+.dice-button:active {
+    background: #d4af37; /* Slightly darker on click */
+}
+
+/* Ensures the text inside is positioned correctly */
+.dice-button span {
+    display: block;
+    padding: 5px;
+    text-align: center;
+    word-wrap: break-word;
 }
