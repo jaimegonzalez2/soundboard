@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Sound Effects Category
         sound1: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot', category: 'sound-effects' },
         sound2: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren', category: 'sound-effects' },
-        sound3: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'sound-effects' },
+        sound3: { file: new Audio('sounds/Jeopardy_music.mp3'), label: 'Jeopardy Music', category: 'sound-effects' },
         sound4: { file: new Audio('sounds/CHAINSAW.mp3'), label: 'Chainsaw', category: 'sound-effects' },
         sound5: { file: new Audio('sounds/Wilhelm_Scream.mp3'), label: 'Wilhelm Scream', category: 'sound-effects' },
         sound6: { file: new Audio('sounds/KABOOM.mp3'), label: 'Explosion', category: 'sound-effects' },
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
         sound8: { file: new Audio('sounds/Stitch_Laugh.mp3'), label: 'Stitch Laugh', category: 'sound-effects' },
         sound9: { file: new Audio('sounds/spell_casting.mp3'), label: 'Spell Casting', category: 'sound-effects' },
         sound10: { file: new Audio('sounds/Stabby_Sound.mp3'), label: 'Stab', category: 'sound-effects' },
-        sound11: { file: new Audio('sounds/Jeopardy_music.mp3'), label: 'Jeopardy Music', category: 'sound-effects' },
+        sound11: { file: new Audio('sounds/Cowboy_Standoff.mp3'), label: 'Cowboy Standoff', category: 'sound-effects' },
         
         // Audio Clips Category
         sound12: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
         sound13: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die', category: 'audio-clips' },
         sound14: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
-        sound15: { file: new Audio('sounds/Cowboy_Standoff.mp3'), label: 'Cowboy Standoff', category: 'audio-clips' },
+        sound15: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'audio-clips' },
         sound16: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
         sound17: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam', category: 'audio-clips' },
         sound18: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass', category: 'audio-clips' },
