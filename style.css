@@ -27,7 +27,7 @@ body {
     max-width: 800px;
 }
 
-/* Category sections */
+/* Category sections 
 .category {
     display: flex;
     flex-direction: column;
@@ -39,9 +39,9 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #FFD700; /* Slightly brighter gold */
+    color: #FFD700; /* Slightly brighter gold 
     text-decoration: underline;
-}
+}*/
 
 .soundboard {
     display: grid;
