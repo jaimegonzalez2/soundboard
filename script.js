@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Audio Clips Category
         sound12: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
-        sound13: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die', category: 'audio-clips' },
+        sound13: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
         sound14: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
         sound15: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'audio-clips' },
-        sound16: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
+        sound16: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die', category: 'audio-clips' },
         sound17: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam', category: 'audio-clips' },
         sound18: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass', category: 'audio-clips' },
         sound19: { file: new Audio('sounds/sydney_doing_math.mp3'), label: 'Sydney Doing Math', category: 'audio-clips' },
