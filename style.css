@@ -44,7 +44,7 @@ body {
 .soundboard {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(6, auto);
     gap: 15px;
     justify-items: center;
     align-items: center;
@@ -87,3 +87,4 @@ body {
 .dice-button:active {
     transform: scale(0.95);
 }
+
