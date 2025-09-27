@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound25: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning', category: 'audio-clips' },
         sound26: { file: new Audio('sounds/suspicious.mp3'), label: 'Don\'t Be Suspicious', category: 'audio-clips' },
         sound27: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
-        sound28: { file: new Audio('sounds/ROX.mp3'), label: 'ROX', category: 'audio-clips' },
+        sound28: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
         sound29: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai', category: 'audio-clips' },
     };
 
@@ -64,4 +64,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 
