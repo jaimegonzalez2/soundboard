@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound27: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
         sound28: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
         sound29: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai', category: 'audio-clips' },
+        sound30: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' }
     };
 
     let currentPlaying = null;
@@ -64,5 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 
 
