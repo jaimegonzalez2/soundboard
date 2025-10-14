@@ -51,6 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (categoryContainer) {
             categoryContainer.appendChild(button);
         }
+        // 🎯 Make Fireball the “tricky” button
+        if (sound.label === 'Yamete Kudasai') {
+            button.classList.add("tricky-button");
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                moveTrickyButton(button);
+            });
+        }
     }
     
     function playSound(soundKey) {
@@ -64,7 +72,21 @@ document.addEventListener("DOMContentLoaded", function() {
             currentPlaying.play();
         }
     }
+
+    function moveTrickyButton(button) {
+        const parent = button.parentElement;
+        const maxX = parent.clientWidth - button.offsetWidth;
+        const maxY = parent.clientHeight - button.offsetHeight;
+        
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+        
+        button.style.position = 'absolute';
+        button.style.left = `${randomX}px`;
+        button.style.top = `${randomY}px`;
+    }
 });
+
 
 
 
