@@ -88,17 +88,27 @@ body {
     transform: scale(0.95);
 }
 
-/* Special button with red border */
+/* Special tricky Fireball button */
 .tricky-button {
-    border: 3px solid red !important;
+    background: #b30000 !important; /* Deep red base */
+    border: 3px solid #800000; /* Darker red border for contrast */
+    color: white; /* White text for visibility */
     position: relative;
     transition: all 0.3s ease-in-out;
 }
 
-/* When it moves */
-.tricky-button.moving {
-    transform: translate(var(--x), var(--y));
+/* Hover effect for tricky button */
+.tricky-button:hover {
+    background: #ff0000; /* Bright red on hover */
+    transform: scale(1.1);
 }
+
+/* Optional: slight movement animation */
+.tricky-button.moving {
+    transition: transform 0.4s ease-out;
+}
+
+
 
 
 
