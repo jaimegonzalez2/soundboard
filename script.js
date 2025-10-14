@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound26: { file: new Audio('sounds/suspicious.mp3'), label: 'Don\'t Be Suspicious', category: 'audio-clips' },
         sound27: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
         sound28: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
-        sound29: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai', category: 'audio-clips' },
+        sound29: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai 18+', category: 'audio-clips' },
         sound30: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' }
     };
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             categoryContainer.appendChild(button);
         }
         // 🎯 Make Fireball the “tricky” button
-        if (sound.label === 'Yamete Kudasai') {
+        if (sound.label === 'Yamete Kudasai 18+') {
             button.classList.add("tricky-button");
             button.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.style.top = `${randomY}px`;
     }
 });
+
 
 
 
