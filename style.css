@@ -88,4 +88,17 @@ body {
     transform: scale(0.95);
 }
 
+/* Special button with red border */
+.tricky-button {
+    border: 3px solid red !important;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* When it moves */
+.tricky-button.moving {
+    transform: translate(var(--x), var(--y));
+}
+
+
 
