@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound27: { file: new Audio('sounds/suspicious.mp3'), label: 'Don\'t Be Suspicious', category: 'audio-clips' },
         sound28: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
         sound29: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
-        sound30: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai 18+', category: 'audio-clips' },
+        sound30: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai (18+)', category: 'audio-clips' },
         sound31: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' },
         sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' }
     };
@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.style.top = `${randomY}px`;
     }
 });
+
 
 
 
