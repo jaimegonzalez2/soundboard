@@ -41,43 +41,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentPlaying = null;
 
-    // Dynamically create buttons for each sound in the correct category
     for (const [key, sound] of Object.entries(sounds)) {
         const button = document.createElement('button');
         button.classList.add("dice-button");
         button.innerHTML = `<span>${sound.label}</span>`;
-        button.onclick = () => playSound(key);
 
-        // Append the button to the correct category
+        // Special handling for the 18+ button
+        if (sound.label === 'Yamete Kudasai (18+)') {
+            button.classList.add("tricky-button");
+            button.style.backgroundColor = 'red';
+
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                const confirmed = confirm("This sound may contain mature content. Are you 18 or older?");
+                if (!confirmed) {
+                    alert("Access denied. This sound is restricted to users 18+.");
+                    moveTrickyButton(button); // only move if they cancel
+                    return;
+                }
+                playSound(key);
+            });
+        } else {
+            // Normal button behavior
+            button.onclick = () => playSound(key);
+        }
+
         const categoryContainer = document.getElementById(sound.category);
         if (categoryContainer) {
             categoryContainer.appendChild(button);
         }
-        // 🎯 Make UWU the “tricky” button
-        if (sound.label === 'Yamete Kudasai 18+') {
-            button.classList.add("tricky-button");
-            button.addEventListener("click", (e) => {
-                e.preventDefault();
-                moveTrickyButton(button);
-
-                // 🔒 Age verification before playing
-                const confirmed = confirm("This sound may contain mature content. Are you 18 or older?");
-                if (!confirmed) {
-                    alert("Access denied. This sound is restricted to users 18+.");
-                    return; // Stop here if user says “No”
-                }
-        
-                playSound(key); // Only plays if confirmed
-            });
-        }
     }
-    
+
     function playSound(soundKey) {
         if (currentPlaying) {
             currentPlaying.pause();
             currentPlaying.currentTime = 0;
         }
-        
         if (sounds[soundKey]) {
             currentPlaying = sounds[soundKey].file;
             currentPlaying.play();
@@ -88,19 +87,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const parent = button.parentElement;
         const maxX = parent.clientWidth - button.offsetWidth;
         const maxY = parent.clientHeight - button.offsetHeight;
-        
+
         const randomX = Math.floor(Math.random() * maxX);
         const randomY = Math.floor(Math.random() * maxY);
-        
+
         button.style.position = 'absolute';
         button.style.left = `${randomX}px`;
         button.style.top = `${randomY}px`;
     }
 });
-
-
-
-
-
-
-
