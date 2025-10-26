@@ -16,25 +16,27 @@ document.addEventListener("DOMContentLoaded", function() {
         sound11: { file: new Audio('sounds/Cowboy_Standoff.mp3'), label: 'Cowboy Standoff', category: 'sound-effects' },
         sound12: { file: new Audio('sounds/Toy_Story_OOH.mp3'), label: 'Toy Story', category: 'sound-effects' },
         sound13: { file: new Audio('sounds/GlitterSound.mp3'), label: 'Glitter', category: 'sound-effects' },
+        sound14: { file: new Audio('sounds/Reveille_Bugle.mp3'), label: 'Trumpet', category: 'sound-effects' },
         
         // Audio Clips Category
-        sound14: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
-        sound15: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
-        sound16: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
-        sound17: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'audio-clips' },
-        sound18: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die', category: 'audio-clips' },
-        sound19: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam', category: 'audio-clips' },
-        sound20: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass', category: 'audio-clips' },
-        sound21: { file: new Audio('sounds/sydney_doing_math.mp3'), label: 'Sydney Doing Math', category: 'audio-clips' },
-        sound22: { file: new Audio('sounds/my_leg.mp3'), label: 'My Leg', category: 'audio-clips' },
-        sound23: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail Runaway', category: 'audio-clips' },
-        sound24: { file: new Audio('sounds/I_see_dead_people.mp3'), label: 'I See Dead People', category: 'audio-clips' },
-        sound25: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning', category: 'audio-clips' },
-        sound26: { file: new Audio('sounds/suspicious.mp3'), label: 'Don\'t Be Suspicious', category: 'audio-clips' },
-        sound27: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
-        sound28: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
-        sound29: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai 18+', category: 'audio-clips' },
-        sound30: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' }
+        sound15: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
+        sound16: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
+        sound17: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
+        sound18: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'audio-clips' },
+        sound19: { file: new Audio('sounds/but_did_you_die.mp3'), label: 'But Did You Die', category: 'audio-clips' },
+        sound20: { file: new Audio('sounds/Alakablam.mp3'), label: 'Alakablam', category: 'audio-clips' },
+        sound21: { file: new Audio('sounds/The_Waco_Kid.mp3'), label: 'Shot Me In The Ass', category: 'audio-clips' },
+        sound22: { file: new Audio('sounds/sydney_doing_math.mp3'), label: 'Sydney Doing Math', category: 'audio-clips' },
+        sound23: { file: new Audio('sounds/my_leg.mp3'), label: 'My Leg', category: 'audio-clips' },
+        sound24: { file: new Audio('sounds/the_holy_grail_runaway.mp3'), label: 'Holy Grail Runaway', category: 'audio-clips' },
+        sound25: { file: new Audio('sounds/I_see_dead_people.mp3'), label: 'I See Dead People', category: 'audio-clips' },
+        sound26: { file: new Audio('sounds/your_one_warning.mp3'), label: 'Your One Warning', category: 'audio-clips' },
+        sound27: { file: new Audio('sounds/suspicious.mp3'), label: 'Don\'t Be Suspicious', category: 'audio-clips' },
+        sound28: { file: new Audio('sounds/LastTime_DragonBallZsound.mp3'), label: 'Dragonball Z', category: 'audio-clips' },
+        sound29: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
+        sound30: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai 18+', category: 'audio-clips' },
+        sound31: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' },
+        sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' }
     };
 
     let currentPlaying = null;
@@ -51,12 +53,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if (categoryContainer) {
             categoryContainer.appendChild(button);
         }
-        // 🎯 Make Fireball the “tricky” button
+        // 🎯 Make UWU the “tricky” button
         if (sound.label === 'Yamete Kudasai 18+') {
             button.classList.add("tricky-button");
             button.addEventListener("click", (e) => {
                 e.preventDefault();
                 moveTrickyButton(button);
+
+                // 🔒 Age verification before playing
+                const confirmed = confirm("This sound may contain mature content. Are you 18 or older?");
+                if (!confirmed) {
+                    alert("Access denied. This sound is restricted to users 18+.");
+                    return; // Stop here if user says “No”
+                }
+        
+                playSound(key); // Only plays if confirmed
             });
         }
     }
@@ -86,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.style.top = `${randomY}px`;
     }
 });
+
 
 
 
