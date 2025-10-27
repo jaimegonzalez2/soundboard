@@ -40,38 +40,68 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     let currentPlaying = null;
+    let cancelCount = 0; // track how many times user cancels
 
+    const ageModal = document.getElementById('ageModal');
+    const btnYes = document.getElementById('ageYes');
+    const btnNo = document.getElementById('ageNo');
+    let pendingButton = null; // store which button triggered modal
+
+    // Create buttons for each sound
     for (const [key, sound] of Object.entries(sounds)) {
         const button = document.createElement('button');
         button.classList.add("dice-button");
         button.innerHTML = `<span>${sound.label}</span>`;
 
-        // Special handling for the 18+ button
-        if (sound.label === 'Yamete Kudasai (18+)') {
+        // Add to correct category
+        const categoryContainer = document.getElementById(sound.category);
+        categoryContainer.appendChild(button);
+
+        // Special tricky 18+ button
+        if (sound.label.includes("Yamete Kudasai")) {
             button.classList.add("tricky-button");
-            button.style.backgroundColor = 'red';
 
             button.addEventListener("click", (e) => {
                 e.preventDefault();
-                const confirmed = confirm("This sound may contain mature content. Are you 18 or older?");
-                if (!confirmed) {
-                    alert("Access denied. This sound is restricted to users 18+.");
-                    moveTrickyButton(button); // only move if they cancel
-                    return;
-                }
-                playSound(key);
+                pendingButton = { key, button };
+                showAgeModal();
             });
         } else {
-            // Normal button behavior
-            button.onclick = () => playSound(key);
-        }
-
-        const categoryContainer = document.getElementById(sound.category);
-        if (categoryContainer) {
-            categoryContainer.appendChild(button);
+            button.addEventListener("click", () => playSound(key));
         }
     }
 
+    // 🟣 Show Modal
+    function showAgeModal() {
+        ageModal.style.display = 'flex';
+    }
+
+    // 🟣 Hide Modal
+    function hideAgeModal() {
+        ageModal.style.display = 'none';
+    }
+
+    // 🟢 Yes = play sound
+    btnYes.addEventListener("click", () => {
+        hideAgeModal();
+        cancelCount = 0; // reset counter
+        if (pendingButton) playSound(pendingButton.key);
+    });
+
+    // 🔴 No = maybe make button run away
+    btnNo.addEventListener("click", () => {
+        hideAgeModal();
+        cancelCount++;
+        if (pendingButton) {
+            if (cancelCount >= 3) {
+                activateRunAwayMode(pendingButton.button);
+            } else {
+                moveTrickyButton(pendingButton.button);
+            }
+        }
+    });
+
+    // 🎵 Play Sound
     function playSound(soundKey) {
         if (currentPlaying) {
             currentPlaying.pause();
@@ -83,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // 🎲 Move Button Randomly (for first two cancels)
     function moveTrickyButton(button) {
         const parent = button.parentElement;
         const maxX = parent.clientWidth - button.offsetWidth;
@@ -92,8 +123,34 @@ document.addEventListener("DOMContentLoaded", function() {
         const randomY = Math.floor(Math.random() * maxY);
 
         button.style.position = 'absolute';
+        button.style.transition = 'all 0.4s ease-in-out';
         button.style.left = `${randomX}px`;
         button.style.top = `${randomY}px`;
+    }
+
+    // 💨 Run Away Mode (after 3rd cancel)
+    function activateRunAwayMode(button) {
+        button.style.position = 'absolute';
+        button.style.transition = 'transform 0.1s ease';
+        let runAway = (event) => {
+            const rect = button.getBoundingClientRect();
+            const dx = event.clientX - (rect.left + rect.width / 2);
+            const dy = event.clientY - (rect.top + rect.height / 2);
+            const distance = Math.sqrt(dx*dx + dy*dy);
+            if (distance < 150) { // within 150px radius
+                const moveX = (Math.random() * 200 - 100);
+                const moveY = (Math.random() * 200 - 100);
+                button.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        };
+        window.addEventListener("mousemove", runAway);
+
+        // After 10 seconds, calm down the button
+        setTimeout(() => {
+            window.removeEventListener("mousemove", runAway);
+            button.style.transform = 'none';
+            cancelCount = 0;
+        }, 10000);
     }
 });
 
