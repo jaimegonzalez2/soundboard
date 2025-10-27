@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Soundboard</title>
+    <title>Pathfinder Soundboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- Age Verification Modal -->
-<div id="age-modal" class="age-modal">
-    <div class="age-modal-content">
-        <h2>Age Verification</h2>
-        <p>This sound may contain mature content. Are you 18 or older?</p>
-        <div class="age-modal-buttons">
-            <button id="age-yes">Yes</button>
-            <button id="age-no">No</button>
-        </div>
-    </div>
-</div>
+
 <body>
     <h1 class="title">Pathfinder Soundboard</h1>
-    
-    <div class="category">
-        <h2 class="category-title">Sound Effects</h2>
-        <div class="soundboard" id="sound-effects"></div>
-    </div>
 
     <div class="category">
-        <h2 class="category-title">Audio Clips</h2>
-        <div class="soundboard" id="audio-clips"></div>
+        <h2 class="category-title">Sound Effects</h2>
+        <div class="soundboard" id="sound-effects">
+            <button class="dice-button" onclick="playSound('sounds/dice-roll.mp3')">🎲 Dice Roll</button>
+            <button class="dice-button" onclick="playSound('sounds/victory.mp3')">🏆 Victory</button>
+            <button id="trickyButton" class="dice-button tricky-button">Yamete Kudasai (18+)</button>
+        </div>
+    </div>
+
+    <!-- 🔒 Age Verification Modal -->
+    <div id="ageModal" class="age-modal">
+        <div class="age-modal-content">
+            <h2>Age Verification</h2>
+            <p>This sound may contain mature content. Are you 18 or older?</p>
+            <div class="age-modal-buttons">
+                <button id="confirmAge">Yes</button>
+                <button id="cancelAge">Cancel</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
