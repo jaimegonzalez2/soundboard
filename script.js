@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("JavaScript Loaded!");
 
     const sounds = {
-        // Sound Effects Category
+        // 🎵 Sound Effects
         sound1: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot', category: 'sound-effects' },
         sound2: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren', category: 'sound-effects' },
         sound3: { file: new Audio('sounds/Jeopardy_music.mp3'), label: 'Jeopardy Music', category: 'sound-effects' },
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound13: { file: new Audio('sounds/GlitterSound.mp3'), label: 'Glitter', category: 'sound-effects' },
         sound14: { file: new Audio('sounds/Reveille_Bugle.mp3'), label: 'Trumpet', category: 'sound-effects' },
 
-        // Audio Clips Category
+        // 🔊 Audio Clips
         sound15: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
         sound16: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
         sound17: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentPlaying = null;
     let cancelCount = 0;
+    let pendingButton = null;
 
     const ageModal = document.getElementById('ageModal');
     const btnYes = document.getElementById('ageYes');
     const btnNo = document.getElementById('ageNo');
-    let pendingButton = null;
 
-    // Create buttons dynamically
+    // Create buttons
     for (const [key, sound] of Object.entries(sounds)) {
         const button = document.createElement('button');
         button.classList.add("dice-button");
@@ -58,8 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (sound.label.includes("Yamete Kudasai")) {
             button.classList.add("tricky-button");
-            button.style.backgroundColor = "red";
-
             button.addEventListener("click", (e) => {
                 e.preventDefault();
                 pendingButton = { key, button };
@@ -79,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ageModal.style.display = 'none';
     }
 
-    // Modal buttons
     btnYes.addEventListener("click", () => {
         hideAgeModal();
         cancelCount = 0;
@@ -90,15 +87,12 @@ document.addEventListener("DOMContentLoaded", function() {
         hideAgeModal();
         cancelCount++;
         if (pendingButton) {
-            if (cancelCount >= 3) {
-                activateRunAwayMode(pendingButton.button);
-            } else {
-                moveTrickyButton(pendingButton.button);
-            }
+            if (cancelCount >= 3) activateRunAwayMode(pendingButton.button);
+            else moveTrickyButton(pendingButton.button);
         }
     });
 
-    // Sound playback
+    // Play sound
     function playSound(soundKey) {
         if (currentPlaying) {
             currentPlaying.pause();
@@ -110,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Button movement (No x1 & x2)
+    // Move button randomly
     function moveTrickyButton(button) {
         const parent = button.parentElement;
         const maxX = parent.clientWidth - button.offsetWidth;
@@ -125,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.style.top = `${randomY}px`;
     }
 
-    // Run away mode (No x3)
+    // Run away mode
     function activateRunAwayMode(button) {
         button.style.position = 'absolute';
         button.style.transition = 'transform 0.1s ease';
@@ -141,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
         window.addEventListener("mousemove", runAway);
-
         setTimeout(() => {
             window.removeEventListener("mousemove", runAway);
             button.style.transform = 'none';
