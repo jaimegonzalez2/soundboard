@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
         sound29: { file: new Audio('sounds/roxSound.mp3'), label: 'ROX', category: 'audio-clips' },
         sound30: { file: new Audio('sounds/YameteKudasai.mp3'), label: 'Yamete Kudasai (18+)', category: 'audio-clips' },
         sound31: { file: new Audio('sounds/uwuSound.mp3'), label: 'UWU', category: 'audio-clips' },
-        sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' }
+        sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' },
+        sound33: { file: new Audio('sounds/NotPrepared.mp3'), label: 'You are not prepared', category: 'audio-clips' }
+
     };
 
     let currentPlaying = null;
@@ -142,3 +144,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 10000);
     }
 });
+
