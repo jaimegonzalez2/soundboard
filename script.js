@@ -39,118 +39,116 @@ document.addEventListener("DOMContentLoaded", function() {
         sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' }
     };
 
-    let currentPlaying = null;
-    let cancelCount = 0; // track how many times user cancels
+    document.addEventListener("DOMContentLoaded", () => {
+    const sounds = document.querySelectorAll(".dice-button");
+    const trickyButton = document.querySelector(".tricky-button");
+    const ageModal = document.getElementById("ageModal");
+    const btnYes = document.getElementById("ageYes");
+    const btnNo = document.getElementById("ageNo");
 
-    const ageModal = document.getElementById('ageModal');
-    const btnYes = document.getElementById('ageYes');
-    const btnNo = document.getElementById('ageNo');
-    let pendingButton = null; // store which button triggered modal
+    let cancelCount = 0;
+    let runningAway = false;
 
-    // Create buttons for each sound
-    for (const [key, sound] of Object.entries(sounds)) {
-        const button = document.createElement('button');
-        button.classList.add("dice-button");
-        button.innerHTML = `<span>${sound.label}</span>`;
-
-        // Add to correct category
-        const categoryContainer = document.getElementById(sound.category);
-        categoryContainer.appendChild(button);
-
-        // Special tricky 18+ button
-        if (sound.label.includes("Yamete Kudasai")) {
-            button.classList.add("tricky-button");
-
-            button.addEventListener("click", (e) => {
-                e.preventDefault();
-                pendingButton = { key, button };
-                showAgeModal();
-            });
-        } else {
-            button.addEventListener("click", () => playSound(key));
-        }
-    }
-
-    // 🟣 Show Modal
-    function showAgeModal() {
-        ageModal.style.display = 'flex';
-    }
-
-    // 🟣 Hide Modal
-    function hideAgeModal() {
-        ageModal.style.display = 'none';
-    }
-
-    // 🟢 Yes = play sound
-    btnYes.addEventListener("click", () => {
-        hideAgeModal();
-        cancelCount = 0; // reset counter
-        if (pendingButton) playSound(pendingButton.key);
-    });
-
-    // 🔴 No = maybe make button run away
-    btnNo.addEventListener("click", () => {
-        hideAgeModal();
-        cancelCount++;
-        if (pendingButton) {
-            if (cancelCount >= 3) {
-                activateRunAwayMode(pendingButton.button);
+    // 🎵 Sound playback
+    sounds.forEach((button) => {
+        const sound = new Audio(button.dataset.sound);
+        button.addEventListener("click", () => {
+            if (button.classList.contains("tricky-button")) {
+                // Open age modal for tricky button
+                ageModal.style.display = "flex";
             } else {
-                moveTrickyButton(pendingButton.button);
+                sound.currentTime = 0;
+                sound.play();
             }
+        });
+    });
+
+    // ✅ Age modal logic
+    btnYes.addEventListener("click", () => {
+        ageModal.style.display = "none";
+        cancelCount = 0;
+        runningAway = false;
+
+        const sound = new Audio(trickyButton.dataset.sound);
+        sound.play();
+    });
+
+    btnNo.addEventListener("click", () => {
+        cancelCount++;
+        showFunnyMessage();
+
+        if (cancelCount === 3) {
+            startRunningAway();
+            ageModal.style.display = "none";
+        } else {
+            // Move button randomly
+            moveTrickyButton();
         }
     });
 
-    // 🎵 Play Sound
-    function playSound(soundKey) {
-        if (currentPlaying) {
-            currentPlaying.pause();
-            currentPlaying.currentTime = 0;
-        }
-        if (sounds[soundKey]) {
-            currentPlaying = sounds[soundKey].file;
-            currentPlaying.play();
-        }
+    // 🧠 Helper: Move the red button slightly each Cancel click
+    function moveTrickyButton() {
+        const offsetX = Math.random() * 200 - 100;
+        const offsetY = Math.random() * 200 - 100;
+        trickyButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
 
-    // 🎲 Move Button Randomly (for first two cancels)
-    function moveTrickyButton(button) {
-        const parent = button.parentElement;
-        const maxX = parent.clientWidth - button.offsetWidth;
-        const maxY = parent.clientHeight - button.offsetHeight;
+    // 🧠 Helper: Make button run away from mouse
+    function startRunningAway() {
+        runningAway = true;
+        trickyButton.classList.add("moving");
 
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
+        document.addEventListener("mousemove", (e) => {
+            if (!runningAway) return;
 
-        button.style.position = 'absolute';
-        button.style.transition = 'all 0.4s ease-in-out';
-        button.style.left = `${randomX}px`;
-        button.style.top = `${randomY}px`;
-    }
+            const rect = trickyButton.getBoundingClientRect();
+            const dx = e.clientX - (rect.left + rect.width / 2);
+            const dy = e.clientY - (rect.top + rect.height / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
 
-    // 💨 Run Away Mode (after 3rd cancel)
-    function activateRunAwayMode(button) {
-        button.style.position = 'absolute';
-        button.style.transition = 'transform 0.1s ease';
-        let runAway = (event) => {
-            const rect = button.getBoundingClientRect();
-            const dx = event.clientX - (rect.left + rect.width / 2);
-            const dy = event.clientY - (rect.top + rect.height / 2);
-            const distance = Math.sqrt(dx*dx + dy*dy);
-            if (distance < 150) { // within 150px radius
-                const moveX = (Math.random() * 200 - 100);
-                const moveY = (Math.random() * 200 - 100);
-                button.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            if (distance < 150) {
+                const moveX = (rect.left - dx * 0.5);
+                const moveY = (rect.top - dy * 0.5);
+                trickyButton.style.position = "fixed";
+                trickyButton.style.left = `${Math.max(0, Math.min(window.innerWidth - rect.width, moveX))}px`;
+                trickyButton.style.top = `${Math.max(0, Math.min(window.innerHeight - rect.height, moveY))}px`;
             }
-        };
-        window.addEventListener("mousemove", runAway);
+        });
+    }
 
-        // After 10 seconds, calm down the button
+    // 🗯 Funny floating message generator
+    function showFunnyMessage() {
+        const messages = [
+            "Nice try.",
+            "You sure about that?",
+            "Can’t catch me!",
+            "Denied.",
+            "Too slow!",
+            "Try again, mortal!"
+        ];
+
+        const msg = document.createElement("div");
+        msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+        msg.style.position = "fixed";
+        msg.style.left = `${trickyButton.getBoundingClientRect().left}px`;
+        msg.style.top = `${trickyButton.getBoundingClientRect().top - 40}px`;
+        msg.style.color = "gold";
+        msg.style.fontFamily = "'Times New Roman', serif";
+        msg.style.fontWeight = "bold";
+        msg.style.textShadow = "0 0 10px red";
+        msg.style.transition = "opacity 1s, transform 1s";
+        msg.style.zIndex = "2000";
+
+        document.body.appendChild(msg);
+
+        // Float up and fade out
         setTimeout(() => {
-            window.removeEventListener("mousemove", runAway);
-            button.style.transform = 'none';
-            cancelCount = 0;
-        }, 10000);
+            msg.style.opacity = "0";
+            msg.style.transform = "translateY(-30px)";
+        }, 100);
+
+        setTimeout(() => msg.remove(), 1200);
     }
 });
+
 
