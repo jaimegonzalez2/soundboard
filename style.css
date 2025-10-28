@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #3D0059;
+    background-color: #3D0059; /* Royal Purple background */
     text-align: center;
     margin: 0;
 }
@@ -17,6 +17,16 @@ body {
     color: gold;
 }
 
+/* Soundboard container */
+.soundboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 90%;
+    max-width: 800px;
+}
+
 /* Category sections */
 .category {
     display: flex;
@@ -26,16 +36,21 @@ body {
 }
 
 .category-title {
-    font-size: 28px;
+    font-size: 1px;
     margin-bottom: 20px;
-    color: gold;
+    color: #3D0059; /* Slightly brighter gold */
 }
 
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, auto);
     gap: 15px;
     justify-items: center;
+    align-items: center;
+    width: min(90%, 600px);
+    justify-content: center;
     align-items: center;
     width: fit-content;
 }
@@ -43,7 +58,7 @@ body {
 .dice-button {
     width: 120px;
     height: 120px;
-    background: gold;
+    background: gold; /* Dice color */
     color: black;
     font-size: 16px;
     font-weight: bold;
@@ -52,20 +67,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #a67c00;
+    position: relative;
+    border: 3px solid #a67c00; /* Darker gold for contrast */
     clip-path: polygon(
         50% 0%, 85% 20%, 100% 50%, 85% 80%, 50% 100%, 
         15% 80%, 0% 50%, 15% 20%
-    );
+    ); /* Overhead d20 shape */
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
+    padding: 10px;
 }
 
+/* Hover effect */
 .dice-button:hover {
     transform: scale(1.1);
-    background: #FFD700;
+    background: #FFD700; /* Slightly brighter gold */
 }
 
+/* Click effect */
 .dice-button:active {
     transform: scale(0.95);
 }
@@ -128,3 +147,4 @@ body {
 .tricky-button.moving {
     transition: transform 0.4s ease-out;
 }
+
