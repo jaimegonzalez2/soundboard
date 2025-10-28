@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("JavaScript Loaded!");
-    
+
     const sounds = {
         // Sound Effects Category
         sound1: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot', category: 'sound-effects' },
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound12: { file: new Audio('sounds/Toy_Story_OOH.mp3'), label: 'Toy Story', category: 'sound-effects' },
         sound13: { file: new Audio('sounds/GlitterSound.mp3'), label: 'Glitter', category: 'sound-effects' },
         sound14: { file: new Audio('sounds/Reveille_Bugle.mp3'), label: 'Trumpet', category: 'sound-effects' },
-        
+
         // Audio Clips Category
         sound15: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
         sound16: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
@@ -39,116 +39,113 @@ document.addEventListener("DOMContentLoaded", function() {
         sound32: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' }
     };
 
-    document.addEventListener("DOMContentLoaded", () => {
-    const sounds = document.querySelectorAll(".dice-button");
-    const trickyButton = document.querySelector(".tricky-button");
-    const ageModal = document.getElementById("ageModal");
-    const btnYes = document.getElementById("ageYes");
-    const btnNo = document.getElementById("ageNo");
-
+    let currentPlaying = null;
     let cancelCount = 0;
-    let runningAway = false;
 
-    // 🎵 Sound playback
-    sounds.forEach((button) => {
-        const sound = new Audio(button.dataset.sound);
-        button.addEventListener("click", () => {
-            if (button.classList.contains("tricky-button")) {
-                // Open age modal for tricky button
-                ageModal.style.display = "flex";
-            } else {
-                sound.currentTime = 0;
-                sound.play();
-            }
-        });
-    });
+    const ageModal = document.getElementById('ageModal');
+    const btnYes = document.getElementById('ageYes');
+    const btnNo = document.getElementById('ageNo');
+    let pendingButton = null;
 
-    // ✅ Age modal logic
+    // Create buttons dynamically
+    for (const [key, sound] of Object.entries(sounds)) {
+        const button = document.createElement('button');
+        button.classList.add("dice-button");
+        button.innerHTML = `<span>${sound.label}</span>`;
+
+        const categoryContainer = document.getElementById(sound.category);
+        categoryContainer.appendChild(button);
+
+        if (sound.label.includes("Yamete Kudasai")) {
+            button.classList.add("tricky-button");
+            button.style.backgroundColor = "red";
+
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                pendingButton = { key, button };
+                showAgeModal();
+            });
+        } else {
+            button.addEventListener("click", () => playSound(key));
+        }
+    }
+
+    // Modal functions
+    function showAgeModal() {
+        ageModal.style.display = 'flex';
+    }
+
+    function hideAgeModal() {
+        ageModal.style.display = 'none';
+    }
+
+    // Modal buttons
     btnYes.addEventListener("click", () => {
-        ageModal.style.display = "none";
+        hideAgeModal();
         cancelCount = 0;
-        runningAway = false;
-
-        const sound = new Audio(trickyButton.dataset.sound);
-        sound.play();
+        if (pendingButton) playSound(pendingButton.key);
     });
 
     btnNo.addEventListener("click", () => {
+        hideAgeModal();
         cancelCount++;
-        showFunnyMessage();
-
-        if (cancelCount === 3) {
-            startRunningAway();
-            ageModal.style.display = "none";
-        } else {
-            // Move button randomly
-            moveTrickyButton();
+        if (pendingButton) {
+            if (cancelCount >= 3) {
+                activateRunAwayMode(pendingButton.button);
+            } else {
+                moveTrickyButton(pendingButton.button);
+            }
         }
     });
 
-    // 🧠 Helper: Move the red button slightly each Cancel click
-    function moveTrickyButton() {
-        const offsetX = Math.random() * 200 - 100;
-        const offsetY = Math.random() * 200 - 100;
-        trickyButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    // Sound playback
+    function playSound(soundKey) {
+        if (currentPlaying) {
+            currentPlaying.pause();
+            currentPlaying.currentTime = 0;
+        }
+        if (sounds[soundKey]) {
+            currentPlaying = sounds[soundKey].file;
+            currentPlaying.play();
+        }
     }
 
-    // 🧠 Helper: Make button run away from mouse
-    function startRunningAway() {
-        runningAway = true;
-        trickyButton.classList.add("moving");
+    // Button movement (No x1 & x2)
+    function moveTrickyButton(button) {
+        const parent = button.parentElement;
+        const maxX = parent.clientWidth - button.offsetWidth;
+        const maxY = parent.clientHeight - button.offsetHeight;
 
-        document.addEventListener("mousemove", (e) => {
-            if (!runningAway) return;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
 
-            const rect = trickyButton.getBoundingClientRect();
-            const dx = e.clientX - (rect.left + rect.width / 2);
-            const dy = e.clientY - (rect.top + rect.height / 2);
+        button.style.position = 'absolute';
+        button.style.transition = 'all 0.4s ease-in-out';
+        button.style.left = `${randomX}px`;
+        button.style.top = `${randomY}px`;
+    }
+
+    // Run away mode (No x3)
+    function activateRunAwayMode(button) {
+        button.style.position = 'absolute';
+        button.style.transition = 'transform 0.1s ease';
+        const runAway = (event) => {
+            const rect = button.getBoundingClientRect();
+            const dx = event.clientX - (rect.left + rect.width / 2);
+            const dy = event.clientY - (rect.top + rect.height / 2);
             const distance = Math.sqrt(dx * dx + dy * dy);
-
             if (distance < 150) {
-                const moveX = (rect.left - dx * 0.5);
-                const moveY = (rect.top - dy * 0.5);
-                trickyButton.style.position = "fixed";
-                trickyButton.style.left = `${Math.max(0, Math.min(window.innerWidth - rect.width, moveX))}px`;
-                trickyButton.style.top = `${Math.max(0, Math.min(window.innerHeight - rect.height, moveY))}px`;
+                const moveX = (Math.random() * 200 - 100);
+                const moveY = (Math.random() * 200 - 100);
+                button.style.transform = `translate(${moveX}px, ${moveY}px)`;
             }
-        });
-    }
+        };
+        window.addEventListener("mousemove", runAway);
 
-    // 🗯 Funny floating message generator
-    function showFunnyMessage() {
-        const messages = [
-            "Nice try.",
-            "You sure about that?",
-            "Can’t catch me!",
-            "Denied.",
-            "Too slow!",
-            "Try again, mortal!"
-        ];
-
-        const msg = document.createElement("div");
-        msg.textContent = messages[Math.floor(Math.random() * messages.length)];
-        msg.style.position = "fixed";
-        msg.style.left = `${trickyButton.getBoundingClientRect().left}px`;
-        msg.style.top = `${trickyButton.getBoundingClientRect().top - 40}px`;
-        msg.style.color = "gold";
-        msg.style.fontFamily = "'Times New Roman', serif";
-        msg.style.fontWeight = "bold";
-        msg.style.textShadow = "0 0 10px red";
-        msg.style.transition = "opacity 1s, transform 1s";
-        msg.style.zIndex = "2000";
-
-        document.body.appendChild(msg);
-
-        // Float up and fade out
         setTimeout(() => {
-            msg.style.opacity = "0";
-            msg.style.transform = "translateY(-30px)";
-        }, 100);
-
-        setTimeout(() => msg.remove(), 1200);
+            window.removeEventListener("mousemove", runAway);
+            button.style.transform = 'none';
+            cancelCount = 0;
+        }, 10000);
     }
 });
-
-
