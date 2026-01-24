@@ -1,13 +1,12 @@
 # **Pathfinder 2e Soundboard 🎵🛡️**  
-A custom **Pathfinder 2e-themed** soundboard built with **HTML, CSS, and JavaScript**. Click on buttons to play iconic sounds, and click again to stop them!
+A custom **Pathfinder 2e-themed** soundboard built with **HTML, CSS, and JavaScript**. Click on buttons to play iconic sounds!
 
 ---
 
 ## **🚀 Features**
 - Click a button to play a sound.
-- Click the same button again to stop the sound.
 - Only one sound plays at a time.
-- Responsive **3x2 grid layout**.
+- Responsive **7x6 grid layout**.
 - Themed design with **custom background and button styles**.
 
 ---
