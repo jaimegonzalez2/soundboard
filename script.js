@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // 🎵 Sound Effects
         sound1: { file: new Audio('sounds/CritSuccess.mp3'), label: 'Critical Success', category: 'sound-effects' },
         sound2: { file: new Audio('sounds/CritFail.mp3'), label: 'Critical Failure', category: 'sound-effects' },
-        sound1: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot', category: 'sound-effects' },
+        sound3: { file: new Audio('sounds/Gunshot.mp3'), label: 'Gunshot', category: 'sound-effects' },
         sound4: { file: new Audio('sounds/CHAINSAW.mp3'), label: 'Chainsaw', category: 'sound-effects' },
         sound5: { file: new Audio('sounds/Wilhelm_Scream.mp3'), label: 'Wilhelm Scream', category: 'sound-effects' },
         sound6: { file: new Audio('sounds/KABOOM.mp3'), label: 'Explosion', category: 'sound-effects' },
@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 10000);
     }
 });
+
 
 
 
