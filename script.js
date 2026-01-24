@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sound6: { file: new Audio('sounds/KABOOM.mp3'), label: 'Explosion', category: 'sound-effects' },
         sound7: { file: new Audio('sounds/Electric_shock.mp3'), label: 'Electric Zap', category: 'sound-effects' },
         sound8: { file: new Audio('sounds/Stitch_Laugh.mp3'), label: 'Stitch Laugh', category: 'sound-effects' },
-        sound9: { file: new Audio('sounds/spell_casting.mp3'), label: 'Spell Casting', category: 'sound-effects' },
+        sound9: { file: new Audio('sounds/RippingPaper.mp3'), label: 'Sheet Rip', category: 'sound-effects' },
         sound10: { file: new Audio('sounds/Stabby_Sound.mp3'), label: 'Stab', category: 'sound-effects' },
         sound11: { file: new Audio('sounds/Cowboy_Standoff.mp3'), label: 'Cowboy Standoff', category: 'sound-effects' },
         sound12: { file: new Audio('sounds/Toy_Story_OOH.mp3'), label: 'Toy Story', category: 'sound-effects' },
@@ -144,4 +144,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 10000);
     }
 });
+
 
