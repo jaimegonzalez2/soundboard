@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
         sound36: { file: new Audio('sounds/Dora.mp3'), label: 'We Did It!', category: 'audio-clips' },
         sound37: { file: new Audio('sounds/NotPrepared.mp3'), label: 'You Are Not Prepared', category: 'audio-clips' },
         sound38: { file: new Audio('sounds/Lizard.mp3'), label: 'Lizard', category: 'audio-clips' },
-        sound39: { file: new Audio('sounds/TuskenRaider.mp3'), label: 'Tusken Raider', category: 'audio-clips' }
+        sound39: { file: new Audio('sounds/TuskenRaider.mp3'), label: 'Tusken Raider', category: 'audio-clips' },
+        sound40: { file: new Audio('sounds/Murder_Train.mp3'), label: 'Murder Train', category: 'audio-clips' }
     };
 
     let currentPlaying = null;
@@ -149,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 10000);
     }
 });
+
 
 
 
