@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
         sound16: { file: new Audio('sounds/Air_Raid_Siren.mp3'), label: 'Air Raid Siren', category: 'sound-effects' },
         sound17: { file: new Audio('sounds/Jeopardy_music.mp3'), label: 'Jeopardy Music', category: 'sound-effects' },
         sound18: { file: new Audio('sounds/R2D2.mp3'), label: 'R2D2', category: 'sound-effects' },
+        sound19: { file: new Audio('sounds/IndianaJones.mp3'), label: 'Whip', category: 'sound-effects' },
 
         // 🔊 Audio Clips
-        sound19: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
         sound20: { file: new Audio('sounds/simpsons.mp3'), label: 'I\'m In Danger', category: 'audio-clips' },
         sound21: { file: new Audio('sounds/Kamehameha.mp3'), label: 'Kamehameha', category: 'audio-clips' },
         sound22: { file: new Audio('sounds/workaholics.mp3'), label: 'I Almost Died', category: 'audio-clips' },
@@ -44,7 +44,10 @@ document.addEventListener("DOMContentLoaded", function() {
         sound37: { file: new Audio('sounds/NotPrepared.mp3'), label: 'You Are Not Prepared', category: 'audio-clips' },
         sound38: { file: new Audio('sounds/Lizard.mp3'), label: 'Lizard', category: 'audio-clips' },
         sound39: { file: new Audio('sounds/TuskenRaider.mp3'), label: 'Tusken Raider', category: 'audio-clips' },
-        sound40: { file: new Audio('sounds/Murder_Train.mp3'), label: 'Murder Train', category: 'audio-clips' }
+        sound40: { file: new Audio('sounds/Murder_Train.mp3'), label: 'Murder Train', category: 'audio-clips' },
+        sound41: { file: new Audio('sounds/Im_a_fireball.mp3'), label: 'Fireball', category: 'audio-clips' },
+        sound42: { file: new Audio('sounds/MortalKombat.mp3'), label: 'Round 1', category: 'audio-clips' },
+        sound43: { file: new Audio('sounds/Shame.mp3'), label: 'Shame', category: 'audio-clips' }
     };
 
     let currentPlaying = null;
